@@ -6,6 +6,8 @@ resource "aws_instance" "test" {
     instance_type = "t2.micro"
     key_name = "serverkey"
     subnet_id = aws_subnet.test.id
+    associate_public_ip_address = true
+    security_groups = [aws_security_group.custom_sg.id]
     tags = {
       Name = "dev-ec2"
     }
