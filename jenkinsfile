@@ -1,0 +1,14 @@
+node {
+     stage('git clone') {
+        git branch: 'main', url: 'https://github.com/sushmapriya53/terraform-09-00-am.git'
+    }
+    stage('init') {
+        dir('day-2-ec2'){
+        sh 'terraform init'
+    }
+    }
+    stage('apply') {
+        sh 'terraform destroy -auto-approve '
+    }
+}
+    
